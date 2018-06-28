@@ -15,6 +15,22 @@
 		07062E0320E4D62D00409EFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062E0220E4D62D00409EFF /* main.m */; };
 		07062E0D20E4D62D00409EFF /* GleeeLiFFMpegTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062E0C20E4D62D00409EFF /* GleeeLiFFMpegTests.m */; };
 		07062E1820E4D62D00409EFF /* GleeeLiFFMpegUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062E1720E4D62D00409EFF /* GleeeLiFFMpegUITests.m */; };
+		07062EAC20E4D6F500409EFF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EAB20E4D6F500409EFF /* libz.tbd */; };
+		07062EAE20E4D70100409EFF /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EAD20E4D70100409EFF /* libbz2.tbd */; };
+		07062EB020E4D70D00409EFF /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EAF20E4D70D00409EFF /* libiconv.tbd */; };
+		07062EF020E4E86200409EFF /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EE520E4E86100409EFF /* libavdevice.a */; };
+		07062EF120E4E86200409EFF /* libpostproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EE620E4E86100409EFF /* libpostproc.a */; };
+		07062EF220E4E86200409EFF /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EE720E4E86100409EFF /* libswscale.a */; };
+		07062EF320E4E86200409EFF /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EE820E4E86100409EFF /* libswresample.a */; };
+		07062EF420E4E86200409EFF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 07062EE920E4E86200409EFF /* README.md */; };
+		07062EF520E4E86200409EFF /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EEA20E4E86200409EFF /* libavformat.a */; };
+		07062EF620E4E86200409EFF /* libfaac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EEB20E4E86200409EFF /* libfaac.a */; };
+		07062EF720E4E86200409EFF /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EEC20E4E86200409EFF /* libx264.a */; };
+		07062EF820E4E86200409EFF /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EED20E4E86200409EFF /* libavcodec.a */; };
+		07062EF920E4E86200409EFF /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EEE20E4E86200409EFF /* libavfilter.a */; };
+		07062EFA20E4E86200409EFF /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EEF20E4E86200409EFF /* libavutil.a */; };
+		07062EFC20E4E8D400409EFF /* NineMinute.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 07062EFB20E4E8D400409EFF /* NineMinute.mp4 */; };
+		07062EFF20E4E97E00409EFF /* GainYUVDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062EFE20E4E97E00409EFF /* GainYUVDataViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +67,24 @@
 		07062E1320E4D62D00409EFF /* GleeeLiFFMpegUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GleeeLiFFMpegUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07062E1720E4D62D00409EFF /* GleeeLiFFMpegUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GleeeLiFFMpegUITests.m; sourceTree = "<group>"; };
 		07062E1920E4D62D00409EFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07062EAB20E4D6F500409EFF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		07062EAD20E4D70100409EFF /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		07062EAF20E4D70D00409EFF /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		07062EB520E4D8DA00409EFF /* CommHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommHeader.h; sourceTree = "<group>"; };
+		07062EE520E4E86100409EFF /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavdevice.a; sourceTree = "<group>"; };
+		07062EE620E4E86100409EFF /* libpostproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpostproc.a; sourceTree = "<group>"; };
+		07062EE720E4E86100409EFF /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
+		07062EE820E4E86100409EFF /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
+		07062EE920E4E86200409EFF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		07062EEA20E4E86200409EFF /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavformat.a; sourceTree = "<group>"; };
+		07062EEB20E4E86200409EFF /* libfaac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfaac.a; sourceTree = "<group>"; };
+		07062EEC20E4E86200409EFF /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
+		07062EED20E4E86200409EFF /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavcodec.a; sourceTree = "<group>"; };
+		07062EEE20E4E86200409EFF /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavfilter.a; sourceTree = "<group>"; };
+		07062EEF20E4E86200409EFF /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libavutil.a; sourceTree = "<group>"; };
+		07062EFB20E4E8D400409EFF /* NineMinute.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = NineMinute.mp4; sourceTree = "<group>"; };
+		07062EFD20E4E97E00409EFF /* GainYUVDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GainYUVDataViewController.h; sourceTree = "<group>"; };
+		07062EFE20E4E97E00409EFF /* GainYUVDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GainYUVDataViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +92,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07062EF920E4E86200409EFF /* libavfilter.a in Frameworks */,
+				07062EF220E4E86200409EFF /* libswscale.a in Frameworks */,
+				07062EB020E4D70D00409EFF /* libiconv.tbd in Frameworks */,
+				07062EF620E4E86200409EFF /* libfaac.a in Frameworks */,
+				07062EAE20E4D70100409EFF /* libbz2.tbd in Frameworks */,
+				07062EF520E4E86200409EFF /* libavformat.a in Frameworks */,
+				07062EF120E4E86200409EFF /* libpostproc.a in Frameworks */,
+				07062EF020E4E86200409EFF /* libavdevice.a in Frameworks */,
+				07062EF720E4E86200409EFF /* libx264.a in Frameworks */,
+				07062EF820E4E86200409EFF /* libavcodec.a in Frameworks */,
+				07062EFA20E4E86200409EFF /* libavutil.a in Frameworks */,
+				07062EF320E4E86200409EFF /* libswresample.a in Frameworks */,
+				07062EAC20E4D6F500409EFF /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +132,7 @@
 				07062E0B20E4D62D00409EFF /* GleeeLiFFMpegTests */,
 				07062E1620E4D62D00409EFF /* GleeeLiFFMpegUITests */,
 				07062DF120E4D62300409EFF /* Products */,
+				07062EAA20E4D6F500409EFF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +149,9 @@
 		07062DF220E4D62300409EFF /* GleeeLiFFMpeg */ = {
 			isa = PBXGroup;
 			children = (
+				07062EE420E4E61000409EFF /* Resource */,
+				07062EBA20E4E54000409EFF /* Vendor */,
+				07062EB220E4D89900409EFF /* GainYUV */,
 				07062DF320E4D62300409EFF /* AppDelegate.h */,
 				07062DF420E4D62300409EFF /* AppDelegate.m */,
 				07062DF620E4D62300409EFF /* ViewController.h */,
@@ -130,6 +181,60 @@
 				07062E1920E4D62D00409EFF /* Info.plist */,
 			);
 			path = GleeeLiFFMpegUITests;
+			sourceTree = "<group>";
+		};
+		07062EAA20E4D6F500409EFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07062EAF20E4D70D00409EFF /* libiconv.tbd */,
+				07062EAD20E4D70100409EFF /* libbz2.tbd */,
+				07062EAB20E4D6F500409EFF /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		07062EB220E4D89900409EFF /* GainYUV */ = {
+			isa = PBXGroup;
+			children = (
+				07062EB520E4D8DA00409EFF /* CommHeader.h */,
+				07062EFD20E4E97E00409EFF /* GainYUVDataViewController.h */,
+				07062EFE20E4E97E00409EFF /* GainYUVDataViewController.m */,
+			);
+			path = GainYUV;
+			sourceTree = "<group>";
+		};
+		07062EBA20E4E54000409EFF /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				07062ECF20E4E56800409EFF /* FFMpeg */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		07062ECF20E4E56800409EFF /* FFMpeg */ = {
+			isa = PBXGroup;
+			children = (
+				07062EED20E4E86200409EFF /* libavcodec.a */,
+				07062EE520E4E86100409EFF /* libavdevice.a */,
+				07062EEE20E4E86200409EFF /* libavfilter.a */,
+				07062EEA20E4E86200409EFF /* libavformat.a */,
+				07062EEF20E4E86200409EFF /* libavutil.a */,
+				07062EEB20E4E86200409EFF /* libfaac.a */,
+				07062EE620E4E86100409EFF /* libpostproc.a */,
+				07062EE820E4E86100409EFF /* libswresample.a */,
+				07062EE720E4E86100409EFF /* libswscale.a */,
+				07062EEC20E4E86200409EFF /* libx264.a */,
+				07062EE920E4E86200409EFF /* README.md */,
+			);
+			path = FFMpeg;
+			sourceTree = "<group>";
+		};
+		07062EE420E4E61000409EFF /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				07062EFB20E4E8D400409EFF /* NineMinute.mp4 */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +342,8 @@
 			files = (
 				07062E0020E4D62D00409EFF /* LaunchScreen.storyboard in Resources */,
 				07062DFD20E4D62D00409EFF /* Assets.xcassets in Resources */,
+				07062EFC20E4E8D400409EFF /* NineMinute.mp4 in Resources */,
+				07062EF420E4E86200409EFF /* README.md in Resources */,
 				07062DFB20E4D62300409EFF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +372,7 @@
 				07062DF820E4D62300409EFF /* ViewController.m in Sources */,
 				07062E0320E4D62D00409EFF /* main.m in Sources */,
 				07062DF520E4D62300409EFF /* AppDelegate.m in Sources */,
+				07062EFF20E4E97E00409EFF /* GainYUVDataViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,10 +542,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7VQH7H24HA;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FFMpeg3/include";
 				INFOPLIST_FILE = GleeeLiFFMpeg/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GleeeLiFFMpeg/FFMpeg3.4/lib",
+					"$(PROJECT_DIR)/FFMpeg3.4/lib",
+					"$(PROJECT_DIR)/GleeeLiFFMpeg/Vendor/FFMpeg",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gleeli.ffmpeg.GleeeLiFFMpeg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -450,10 +568,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7VQH7H24HA;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FFMpeg3/include";
 				INFOPLIST_FILE = GleeeLiFFMpeg/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GleeeLiFFMpeg/FFMpeg3.4/lib",
+					"$(PROJECT_DIR)/FFMpeg3.4/lib",
+					"$(PROJECT_DIR)/GleeeLiFFMpeg/Vendor/FFMpeg",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gleeli.ffmpeg.GleeeLiFFMpeg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
