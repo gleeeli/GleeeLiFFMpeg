@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07062DF520E4D62300409EFF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062DF420E4D62300409EFF /* AppDelegate.m */; };
+		07062DF820E4D62300409EFF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062DF720E4D62300409EFF /* ViewController.m */; };
+		07062DFB20E4D62300409EFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07062DF920E4D62300409EFF /* Main.storyboard */; };
+		07062DFD20E4D62D00409EFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07062DFC20E4D62D00409EFF /* Assets.xcassets */; };
+		07062E0020E4D62D00409EFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07062DFE20E4D62D00409EFF /* LaunchScreen.storyboard */; };
+		07062E0320E4D62D00409EFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062E0220E4D62D00409EFF /* main.m */; };
+		07062E0D20E4D62D00409EFF /* GleeeLiFFMpegTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062E0C20E4D62D00409EFF /* GleeeLiFFMpegTests.m */; };
+		07062E1820E4D62D00409EFF /* GleeeLiFFMpegUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062E1720E4D62D00409EFF /* GleeeLiFFMpegUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		07062E0920E4D62D00409EFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07062DE820E4D62300409EFF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07062DEF20E4D62300409EFF;
+			remoteInfo = GleeeLiFFMpeg;
+		};
+		07062E1420E4D62D00409EFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07062DE820E4D62300409EFF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07062DEF20E4D62300409EFF;
+			remoteInfo = GleeeLiFFMpeg;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07062DF020E4D62300409EFF /* GleeeLiFFMpeg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GleeeLiFFMpeg.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07062DF320E4D62300409EFF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		07062DF420E4D62300409EFF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		07062DF620E4D62300409EFF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		07062DF720E4D62300409EFF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		07062DFA20E4D62300409EFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		07062DFC20E4D62D00409EFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07062DFF20E4D62D00409EFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		07062E0120E4D62D00409EFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07062E0220E4D62D00409EFF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		07062E0820E4D62D00409EFF /* GleeeLiFFMpegTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GleeeLiFFMpegTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07062E0C20E4D62D00409EFF /* GleeeLiFFMpegTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GleeeLiFFMpegTests.m; sourceTree = "<group>"; };
+		07062E0E20E4D62D00409EFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07062E1320E4D62D00409EFF /* GleeeLiFFMpegUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GleeeLiFFMpegUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07062E1720E4D62D00409EFF /* GleeeLiFFMpegUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GleeeLiFFMpegUITests.m; sourceTree = "<group>"; };
+		07062E1920E4D62D00409EFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07062DED20E4D62300409EFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07062E0520E4D62D00409EFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07062E1020E4D62D00409EFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07062DE720E4D62300409EFF = {
+			isa = PBXGroup;
+			children = (
+				07062DF220E4D62300409EFF /* GleeeLiFFMpeg */,
+				07062E0B20E4D62D00409EFF /* GleeeLiFFMpegTests */,
+				07062E1620E4D62D00409EFF /* GleeeLiFFMpegUITests */,
+				07062DF120E4D62300409EFF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		07062DF120E4D62300409EFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07062DF020E4D62300409EFF /* GleeeLiFFMpeg.app */,
+				07062E0820E4D62D00409EFF /* GleeeLiFFMpegTests.xctest */,
+				07062E1320E4D62D00409EFF /* GleeeLiFFMpegUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07062DF220E4D62300409EFF /* GleeeLiFFMpeg */ = {
+			isa = PBXGroup;
+			children = (
+				07062DF320E4D62300409EFF /* AppDelegate.h */,
+				07062DF420E4D62300409EFF /* AppDelegate.m */,
+				07062DF620E4D62300409EFF /* ViewController.h */,
+				07062DF720E4D62300409EFF /* ViewController.m */,
+				07062DF920E4D62300409EFF /* Main.storyboard */,
+				07062DFC20E4D62D00409EFF /* Assets.xcassets */,
+				07062DFE20E4D62D00409EFF /* LaunchScreen.storyboard */,
+				07062E0120E4D62D00409EFF /* Info.plist */,
+				07062E0220E4D62D00409EFF /* main.m */,
+			);
+			path = GleeeLiFFMpeg;
+			sourceTree = "<group>";
+		};
+		07062E0B20E4D62D00409EFF /* GleeeLiFFMpegTests */ = {
+			isa = PBXGroup;
+			children = (
+				07062E0C20E4D62D00409EFF /* GleeeLiFFMpegTests.m */,
+				07062E0E20E4D62D00409EFF /* Info.plist */,
+			);
+			path = GleeeLiFFMpegTests;
+			sourceTree = "<group>";
+		};
+		07062E1620E4D62D00409EFF /* GleeeLiFFMpegUITests */ = {
+			isa = PBXGroup;
+			children = (
+				07062E1720E4D62D00409EFF /* GleeeLiFFMpegUITests.m */,
+				07062E1920E4D62D00409EFF /* Info.plist */,
+			);
+			path = GleeeLiFFMpegUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07062DEF20E4D62300409EFF /* GleeeLiFFMpeg */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07062E1C20E4D62D00409EFF /* Build configuration list for PBXNativeTarget "GleeeLiFFMpeg" */;
+			buildPhases = (
+				07062DEC20E4D62300409EFF /* Sources */,
+				07062DED20E4D62300409EFF /* Frameworks */,
+				07062DEE20E4D62300409EFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GleeeLiFFMpeg;
+			productName = GleeeLiFFMpeg;
+			productReference = 07062DF020E4D62300409EFF /* GleeeLiFFMpeg.app */;
+			productType = "com.apple.product-type.application";
+		};
+		07062E0720E4D62D00409EFF /* GleeeLiFFMpegTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07062E1F20E4D62D00409EFF /* Build configuration list for PBXNativeTarget "GleeeLiFFMpegTests" */;
+			buildPhases = (
+				07062E0420E4D62D00409EFF /* Sources */,
+				07062E0520E4D62D00409EFF /* Frameworks */,
+				07062E0620E4D62D00409EFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07062E0A20E4D62D00409EFF /* PBXTargetDependency */,
+			);
+			name = GleeeLiFFMpegTests;
+			productName = GleeeLiFFMpegTests;
+			productReference = 07062E0820E4D62D00409EFF /* GleeeLiFFMpegTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		07062E1220E4D62D00409EFF /* GleeeLiFFMpegUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07062E2220E4D62D00409EFF /* Build configuration list for PBXNativeTarget "GleeeLiFFMpegUITests" */;
+			buildPhases = (
+				07062E0F20E4D62D00409EFF /* Sources */,
+				07062E1020E4D62D00409EFF /* Frameworks */,
+				07062E1120E4D62D00409EFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07062E1520E4D62D00409EFF /* PBXTargetDependency */,
+			);
+			name = GleeeLiFFMpegUITests;
+			productName = GleeeLiFFMpegUITests;
+			productReference = 07062E1320E4D62D00409EFF /* GleeeLiFFMpegUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07062DE820E4D62300409EFF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = gleeli;
+				TargetAttributes = {
+					07062DEF20E4D62300409EFF = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					07062E0720E4D62D00409EFF = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 07062DEF20E4D62300409EFF;
+					};
+					07062E1220E4D62D00409EFF = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 07062DEF20E4D62300409EFF;
+					};
+				};
+			};
+			buildConfigurationList = 07062DEB20E4D62300409EFF /* Build configuration list for PBXProject "GleeeLiFFMpeg" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 07062DE720E4D62300409EFF;
+			productRefGroup = 07062DF120E4D62300409EFF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07062DEF20E4D62300409EFF /* GleeeLiFFMpeg */,
+				07062E0720E4D62D00409EFF /* GleeeLiFFMpegTests */,
+				07062E1220E4D62D00409EFF /* GleeeLiFFMpegUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07062DEE20E4D62300409EFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07062E0020E4D62D00409EFF /* LaunchScreen.storyboard in Resources */,
+				07062DFD20E4D62D00409EFF /* Assets.xcassets in Resources */,
+				07062DFB20E4D62300409EFF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07062E0620E4D62D00409EFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07062E1120E4D62D00409EFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07062DEC20E4D62300409EFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07062DF820E4D62300409EFF /* ViewController.m in Sources */,
+				07062E0320E4D62D00409EFF /* main.m in Sources */,
+				07062DF520E4D62300409EFF /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07062E0420E4D62D00409EFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07062E0D20E4D62D00409EFF /* GleeeLiFFMpegTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07062E0F20E4D62D00409EFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07062E1820E4D62D00409EFF /* GleeeLiFFMpegUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07062E0A20E4D62D00409EFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07062DEF20E4D62300409EFF /* GleeeLiFFMpeg */;
+			targetProxy = 07062E0920E4D62D00409EFF /* PBXContainerItemProxy */;
+		};
+		07062E1520E4D62D00409EFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07062DEF20E4D62300409EFF /* GleeeLiFFMpeg */;
+			targetProxy = 07062E1420E4D62D00409EFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		07062DF920E4D62300409EFF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07062DFA20E4D62300409EFF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		07062DFE20E4D62D00409EFF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07062DFF20E4D62D00409EFF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07062E1A20E4D62D00409EFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		07062E1B20E4D62D00409EFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		07062E1D20E4D62D00409EFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GleeeLiFFMpeg/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gleeli.ffmpeg.GleeeLiFFMpeg;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		07062E1E20E4D62D00409EFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GleeeLiFFMpeg/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gleeli.ffmpeg.GleeeLiFFMpeg;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		07062E2020E4D62D00409EFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GleeeLiFFMpegTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gleeli.ffmpeg.GleeeLiFFMpegTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GleeeLiFFMpeg.app/GleeeLiFFMpeg";
+			};
+			name = Debug;
+		};
+		07062E2120E4D62D00409EFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GleeeLiFFMpegTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gleeli.ffmpeg.GleeeLiFFMpegTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GleeeLiFFMpeg.app/GleeeLiFFMpeg";
+			};
+			name = Release;
+		};
+		07062E2320E4D62D00409EFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GleeeLiFFMpegUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gleeli.ffmpeg.GleeeLiFFMpegUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GleeeLiFFMpeg;
+			};
+			name = Debug;
+		};
+		07062E2420E4D62D00409EFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GleeeLiFFMpegUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gleeli.ffmpeg.GleeeLiFFMpegUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GleeeLiFFMpeg;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07062DEB20E4D62300409EFF /* Build configuration list for PBXProject "GleeeLiFFMpeg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07062E1A20E4D62D00409EFF /* Debug */,
+				07062E1B20E4D62D00409EFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07062E1C20E4D62D00409EFF /* Build configuration list for PBXNativeTarget "GleeeLiFFMpeg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07062E1D20E4D62D00409EFF /* Debug */,
+				07062E1E20E4D62D00409EFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07062E1F20E4D62D00409EFF /* Build configuration list for PBXNativeTarget "GleeeLiFFMpegTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07062E2020E4D62D00409EFF /* Debug */,
+				07062E2120E4D62D00409EFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07062E2220E4D62D00409EFF /* Build configuration list for PBXNativeTarget "GleeeLiFFMpegUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07062E2320E4D62D00409EFF /* Debug */,
+				07062E2420E4D62D00409EFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07062DE820E4D62300409EFF /* Project object */;
+}
