@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0702435D20F2F8EE00181003 /* CommAudioUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702435C20F2F8EE00181003 /* CommAudioUnitViewController.m */; };
+		0702435F20F2FAFF00181003 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702435E20F2FAFF00181003 /* CoreMedia.framework */; };
+		0702436320F304C200181003 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702436220F304C100181003 /* AudioToolbox.framework */; };
+		0702436420F3079A00181003 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EAB20E4D6F500409EFF /* libz.tbd */; };
 		07062DF520E4D62300409EFF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062DF420E4D62300409EFF /* AppDelegate.m */; };
 		07062DF820E4D62300409EFF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062DF720E4D62300409EFF /* ViewController.m */; };
 		07062DFB20E4D62300409EFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07062DF920E4D62300409EFF /* Main.storyboard */; };
@@ -15,7 +19,6 @@
 		07062E0320E4D62D00409EFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062E0220E4D62D00409EFF /* main.m */; };
 		07062E0D20E4D62D00409EFF /* GleeeLiFFMpegTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062E0C20E4D62D00409EFF /* GleeeLiFFMpegTests.m */; };
 		07062E1820E4D62D00409EFF /* GleeeLiFFMpegUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062E1720E4D62D00409EFF /* GleeeLiFFMpegUITests.m */; };
-		07062EAC20E4D6F500409EFF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EAB20E4D6F500409EFF /* libz.tbd */; };
 		07062EAE20E4D70100409EFF /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EAD20E4D70100409EFF /* libbz2.tbd */; };
 		07062EB020E4D70D00409EFF /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EAF20E4D70D00409EFF /* libiconv.tbd */; };
 		07062EF020E4E86200409EFF /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EE520E4E86100409EFF /* libavdevice.a */; };
@@ -31,6 +34,7 @@
 		07062EFA20E4E86200409EFF /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07062EEF20E4E86200409EFF /* libavutil.a */; };
 		07062EFC20E4E8D400409EFF /* NineMinute.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 07062EFB20E4E8D400409EFF /* NineMinute.mp4 */; };
 		07062EFF20E4E97E00409EFF /* GainYUVDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062EFE20E4E97E00409EFF /* GainYUVDataViewController.m */; };
+		07C233A220EF5B2100C0E80B /* CommAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C233A120EF5B2100C0E80B /* CommAudioViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0702435B20F2F8EE00181003 /* CommAudioUnitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommAudioUnitViewController.h; sourceTree = "<group>"; };
+		0702435C20F2F8EE00181003 /* CommAudioUnitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommAudioUnitViewController.m; sourceTree = "<group>"; };
+		0702435E20F2FAFF00181003 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		0702436020F2FB1A00181003 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		0702436220F304C100181003 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		07062DF020E4D62300409EFF /* GleeeLiFFMpeg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GleeeLiFFMpeg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07062DF320E4D62300409EFF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07062DF420E4D62300409EFF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +94,8 @@
 		07062EFB20E4E8D400409EFF /* NineMinute.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = NineMinute.mp4; sourceTree = "<group>"; };
 		07062EFD20E4E97E00409EFF /* GainYUVDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GainYUVDataViewController.h; sourceTree = "<group>"; };
 		07062EFE20E4E97E00409EFF /* GainYUVDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GainYUVDataViewController.m; sourceTree = "<group>"; };
+		07C233A020EF5B2100C0E80B /* CommAudioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommAudioViewController.h; sourceTree = "<group>"; };
+		07C233A120EF5B2100C0E80B /* CommAudioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommAudioViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +103,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0702436420F3079A00181003 /* libz.tbd in Frameworks */,
+				0702436320F304C200181003 /* AudioToolbox.framework in Frameworks */,
+				0702435F20F2FAFF00181003 /* CoreMedia.framework in Frameworks */,
 				07062EF920E4E86200409EFF /* libavfilter.a in Frameworks */,
 				07062EF220E4E86200409EFF /* libswscale.a in Frameworks */,
 				07062EB020E4D70D00409EFF /* libiconv.tbd in Frameworks */,
@@ -104,7 +118,6 @@
 				07062EF820E4E86200409EFF /* libavcodec.a in Frameworks */,
 				07062EFA20E4E86200409EFF /* libavutil.a in Frameworks */,
 				07062EF320E4E86200409EFF /* libswresample.a in Frameworks */,
-				07062EAC20E4D6F500409EFF /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +162,7 @@
 		07062DF220E4D62300409EFF /* GleeeLiFFMpeg */ = {
 			isa = PBXGroup;
 			children = (
+				07C2339F20EF5AE900C0E80B /* BaseFunc */,
 				07062EE420E4E61000409EFF /* Resource */,
 				07062EBA20E4E54000409EFF /* Vendor */,
 				07062EB220E4D89900409EFF /* GainYUV */,
@@ -186,6 +200,9 @@
 		07062EAA20E4D6F500409EFF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0702436220F304C100181003 /* AudioToolbox.framework */,
+				0702436020F2FB1A00181003 /* AudioUnit.framework */,
+				0702435E20F2FAFF00181003 /* CoreMedia.framework */,
 				07062EAF20E4D70D00409EFF /* libiconv.tbd */,
 				07062EAD20E4D70100409EFF /* libbz2.tbd */,
 				07062EAB20E4D6F500409EFF /* libz.tbd */,
@@ -235,6 +252,17 @@
 				07062EFB20E4E8D400409EFF /* NineMinute.mp4 */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		07C2339F20EF5AE900C0E80B /* BaseFunc */ = {
+			isa = PBXGroup;
+			children = (
+				07C233A020EF5B2100C0E80B /* CommAudioViewController.h */,
+				07C233A120EF5B2100C0E80B /* CommAudioViewController.m */,
+				0702435B20F2F8EE00181003 /* CommAudioUnitViewController.h */,
+				0702435C20F2F8EE00181003 /* CommAudioUnitViewController.m */,
+			);
+			path = BaseFunc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,8 +399,10 @@
 			files = (
 				07062DF820E4D62300409EFF /* ViewController.m in Sources */,
 				07062E0320E4D62D00409EFF /* main.m in Sources */,
+				07C233A220EF5B2100C0E80B /* CommAudioViewController.m in Sources */,
 				07062DF520E4D62300409EFF /* AppDelegate.m in Sources */,
 				07062EFF20E4E97E00409EFF /* GainYUVDataViewController.m in Sources */,
+				0702435D20F2F8EE00181003 /* CommAudioUnitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,8 +583,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/GleeeLiFFMpeg/FFMpeg3.4/lib",
-					"$(PROJECT_DIR)/FFMpeg3.4/lib",
 					"$(PROJECT_DIR)/GleeeLiFFMpeg/Vendor/FFMpeg",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gleeli.ffmpeg.GleeeLiFFMpeg;
@@ -579,8 +607,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/GleeeLiFFMpeg/FFMpeg3.4/lib",
-					"$(PROJECT_DIR)/FFMpeg3.4/lib",
 					"$(PROJECT_DIR)/GleeeLiFFMpeg/Vendor/FFMpeg",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gleeli.ffmpeg.GleeeLiFFMpeg;
