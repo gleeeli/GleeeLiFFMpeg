@@ -72,8 +72,8 @@
     ioUnitDescription.componentFlagsMask = 0;
     
     AudioComponent ioUnitRef = AudioComponentFindNext(NULL, &ioUnitDescription);
-    AudioUnit ioUnitInstance;
-    AudioComponentInstanceNew(ioUnitRef, &ioUnitInstance);
+//    AudioUnit remoteIOUnit;
+    AudioComponentInstanceNew(ioUnitRef, &remoteIOUnit);
     
     NewAUGraph(&processingGraph);
     
@@ -101,10 +101,13 @@
     
    
     UInt32 oneFlag = 1;
+    [self speakerOpenWithOneFlag:oneFlag];
+    
     //麦克风
     [self connectMicrophoneWithOneFlag:oneFlag];
     
-    [self speakerOpenWithOneFlag:oneFlag];
+    [self speakerOhterSet];
+    
     
     //方式一、
     //将音频输入和输出连接起来
@@ -143,12 +146,12 @@ static OSStatus renderCallback(void *inRefCon, AudioUnitRenderActionFlags *ioAct
 - (void)speakerOpenWithOneFlag:(UInt32)oneFlag
 {
     //使用扬声器
-    OSStatus status = noErr;
-    
     UInt32 busZero = 0;
-    status = AudioUnitSetProperty(remoteIOUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Output, busZero, &oneFlag, sizeof(oneFlag));
-//    CheckStatus(status, @"无法连接到扬声器", YES);
-    
+    CheckStatus(AudioUnitSetProperty(remoteIOUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Output, busZero, &oneFlag, sizeof(oneFlag)),@"无法连接到扬声器",YES);
+}
+
+- (void)speakerOhterSet
+{
     UInt32 propSize = sizeof(asbd);
     CheckStatus(AudioUnitGetProperty(remoteIOUnit,
                                      kAudioUnitProperty_StreamFormat,
@@ -217,13 +220,13 @@ static OSStatus renderCallback(void *inRefCon, AudioUnitRenderActionFlags *ioAct
     CheckStatus(ExtAudioFileSetProperty(finalAudioFile,
                                           kExtAudioFileProperty_ClientDataFormat,
                                           sizeof(asbd),
-                                          &asbd), @"augraph recorder set file format error",NO);
+                                          &asbd), @"augraph recorder set file format error",YES);
 // kExtAudioFileProperty_CodecManufacturer 是否使用硬件编解码
     UInt32 codec = kAppleHardwareAudioCodecManufacturer;
     CheckStatus(ExtAudioFileSetProperty(finalAudioFile,
                                           kExtAudioFileProperty_CodecManufacturer,
                                           sizeof(codec),
-                                          &codec), @"augraph recorder set file codec error",NO);
+                                          &codec), @"augraph recorder set file codec error",YES);
 
     //CheckStatus(ExtAudioFileWriteAsync(finalAudioFile, 0, NULL), @"augraph recorder write file error",YES);
 }
