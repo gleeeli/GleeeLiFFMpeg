@@ -18,6 +18,8 @@
     AudioStreamBasicDescription asbd;
     NSString *destinationFilePath;
     AUGraph processingGraph;
+    AudioComponentDescription ioUnitDescription;
+    AUNode remoteIoNode;
 }
 @end
 
@@ -26,24 +28,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = paths[0];
     destinationFilePath = [documentsDirectory stringByAppendingPathComponent:@"temp.wav"];
     NSLog(@"文件保存路径：%@",destinationFilePath);
     
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    //设置录音和播放模式
     NSError *error;
-    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
-    
     NSTimeInterval bufferDuration = 0.002;//buff越小延迟越低
-    [audioSession setPreferredIOBufferDuration:bufferDuration error:&error];
-    
-    double hwSampleRate = 44100.0;
+    double hwSampleRate = 44100.00;
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     [audioSession setPreferredSampleRate:hwSampleRate error:&error];
+    [audioSession setPreferredIOBufferDuration:bufferDuration error:&error];
     [audioSession setActive:YES error:&error];
 
-    AudioComponentDescription ioUnitDescription;
+    
     /*
      kAudioUnitType_Effect 提供声音特殊处理功能 其子类型有:
         kAudioUnitSubType_NBandEQ :均衡效果器，增强声音的频带，该效果器需要指定多个频带
@@ -71,16 +73,23 @@
     ioUnitDescription.componentFlags = 0;
     ioUnitDescription.componentFlagsMask = 0;
     
+    //查找音频单元
     AudioComponent ioUnitRef = AudioComponentFindNext(NULL, &ioUnitDescription);
-//    AudioUnit remoteIOUnit;
-    AudioComponentInstanceNew(ioUnitRef, &remoteIOUnit);
+    //获取音频单元实例
+    CheckStatus(AudioComponentInstanceNew(ioUnitRef, &remoteIOUnit), @"实列化音频单元",YES);
+    
+    UInt32 oneFlag = 1;
+    //连接上麦克风
+    UInt32 busOne = 1;
+    AudioUnitSetProperty(remoteIOUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Input, busOne, &oneFlag, sizeof(oneFlag));
+    
+    //使用扬声器
+    UInt32 busZero = 0;
+    CheckStatus(AudioUnitSetProperty(remoteIOUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Output, busZero, &oneFlag, sizeof(oneFlag)),@"无法连接到扬声器",YES);
+    //设置麦克风
+    [self setMicrophone];
     
     NewAUGraph(&processingGraph);
-    
-    //AUGraph中增加一个node
-    AUNode ioNode;
-    AUGraphAddNode(processingGraph, &ioUnitDescription, &ioNode);
-    
     //注意 必需在获取AudioUnit之前打开整个AUGraph，否则我们将不能从对应的AUNode中获取正确的AudioUnit
     Boolean graphIsOpen;
     AUGraphIsOpen(processingGraph, &graphIsOpen);
@@ -89,24 +98,10 @@
         AUGraphOpen(processingGraph);
     }
     
-    Boolean graphIsInitialized;
-    CheckStatus(AUGraphIsInitialized(processingGraph, &graphIsInitialized), @"get graph initialize state error",YES);
-    if (!graphIsInitialized) {
-        CheckStatus(AUGraphInitialize(processingGraph), @"initialize graph error",YES);
-    }
-    
+    //AUGraph中增加一个node
+    AUGraphAddNode(processingGraph, &ioUnitDescription, &remoteIoNode);
     //从node重取出audioUnit
-    //AudioUnit ioUnit;
-    CheckStatus(AUGraphNodeInfo(processingGraph, ioNode, NULL, &remoteIOUnit),@"获取node信息出错",YES);
-    
-   
-    UInt32 oneFlag = 1;
-    [self speakerOpenWithOneFlag:oneFlag];
-    
-    //麦克风
-    [self connectMicrophoneWithOneFlag:oneFlag];
-    
-    [self speakerOhterSet];
+    CheckStatus(AUGraphNodeInfo(processingGraph, remoteIoNode, NULL, &remoteIOUnit),@"获取node信息出错",YES);
     
     
     //方式一、
@@ -117,41 +112,76 @@
     //remoteIOUnit 需要数据输入的时候就会调用该回调
     renderProc.inputProc = renderCallback;
     renderProc.inputProcRefCon = (__bridge void *)self;
-    AUGraphSetNodeInputCallback(processingGraph, ioNode, 0, &renderProc);
+    CheckStatus(AUGraphSetNodeInputCallback(processingGraph, remoteIoNode, 0, &renderProc),@"设置回调出错",YES);
+    
+    Boolean graphIsInitialized;
+    CheckStatus(AUGraphIsInitialized(processingGraph, &graphIsInitialized), @"get graph initialize state error",YES);
+    if (!graphIsInitialized)
+    {
+        CheckStatus(AUGraphInitialize(processingGraph), @"initialize graph error",YES);
+    }
+    
+    //    AUGraphUpdate 更新AUGraph，当有增加Node或移除时可以执行这将整个AUGraph规则更新
+    CheckStatus(AUGraphUpdate(processingGraph, NULL),@"couldn't AUGraphUpdate",YES);
     
     [self startAUGraph];
 }
-
-
 
 - (void)startAUGraph
 {
     Boolean graphIsRunning;
     CheckStatus(AUGraphIsRunning(processingGraph, &graphIsRunning), @"get graph running state error",YES);
-    CheckStatus(AUGraphStart(processingGraph), @"start graph error",YES);
+    if (!graphIsRunning)
+    {
+        NSLog(@"开始运行");
+        CheckStatus(AUGraphStart(processingGraph), @"start graph error",YES);
+    }
 }
 
 static OSStatus renderCallback(void *inRefCon, AudioUnitRenderActionFlags *ioActionFlags, const AudioTimeStamp *inTimeStamp,UInt32 inBusNumber,UInt32 inNumberFrames,AudioBufferList *ioData)
 {
-    NSLog(@"回调");
     OSStatus result = noErr;
 
     __unsafe_unretained CommAudioUnitViewController *THIS = (__bridge CommAudioUnitViewController *)inRefCon;
+
+//    AudioBufferList bufferList;
+//    UInt16 numSamples=inNumberFrames*1;
+//    UInt16 samples[numSamples];
+//    memset (&samples, 0, sizeof (samples));
+//    bufferList.mNumberBuffers = 1;
+//    bufferList.mBuffers[0].mData = samples;
+//    bufferList.mBuffers[0].mNumberChannels = 1;
+//    bufferList.mBuffers[0].mDataByteSize = numSamples*sizeof(UInt16);
+//    CheckStatus(AudioUnitRender(THIS->remoteIOUnit,
+//                               ioActionFlags,
+//                               inTimeStamp,
+//                               1,
+//                               inNumberFrames,
+//                               &bufferList),@"AudioUnitRender failed",YES);
+
     
-    AudioUnitRender(THIS->remoteIOUnit, ioActionFlags, inTimeStamp, 0, inNumberFrames, ioData);
-    result = ExtAudioFileWriteAsync(THIS->finalAudioFile, inNumberFrames, ioData);
+   result = AudioUnitRender(THIS->remoteIOUnit, ioActionFlags, inTimeStamp, 1, inNumberFrames, ioData);
+    NSLog(@"回调%d",result);
+//    CheckStatus(result, @"回调出错",YES);
+//    result = ExtAudioFileWriteAsync(THIS->finalAudioFile, inNumberFrames, ioData);
     return result;
 }
 
-- (void)speakerOpenWithOneFlag:(UInt32)oneFlag
+- (void)setMicrophone
 {
-    //使用扬声器
-    UInt32 busZero = 0;
-    CheckStatus(AudioUnitSetProperty(remoteIOUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Output, busZero, &oneFlag, sizeof(oneFlag)),@"无法连接到扬声器",YES);
-}
-
-- (void)speakerOhterSet
-{
+    //给audioUnit设置数据格式
+    UInt32 bytesPerSample = sizeof(Float32);
+//    AudioStreamBasicDescription asbd;
+    bzero(&asbd, sizeof(asbd));
+    asbd.mFormatID = kAudioFormatLinearPCM;//音频编码格式
+    asbd.mSampleRate = 44100.00;
+    asbd.mChannelsPerFrame = 1;//1：单声道 2:立体声
+    asbd.mFramesPerPacket = 1;//每个数据包多少帧
+    asbd.mFormatFlags = kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;//kAudioFormatFlagsNativeFloatPacked | kAudioFormatFlagIsNonInterleaved;//指定采样为float格式，非交错存储
+    asbd.mBitsPerChannel = 16;//8 * bytesPerSample;////语音每采样点占用位数
+    asbd.mBytesPerFrame = asbd.mBitsPerChannel * asbd.mChannelsPerFrame/8;//bytesPerSample;//如果是interleaved，则需要乘以声道数
+    asbd.mBytesPerPacket = asbd.mBytesPerFrame * asbd.mFramesPerPacket;//bytesPerSample;//如果是interleaved，则需要乘以声道数
+    
     UInt32 propSize = sizeof(asbd);
     CheckStatus(AudioUnitGetProperty(remoteIOUnit,
                                      kAudioUnitProperty_StreamFormat,
@@ -160,41 +190,17 @@ static OSStatus renderCallback(void *inRefCon, AudioUnitRenderActionFlags *ioAct
                                      &asbd,
                                      &propSize),@"couldn't get kAudioUnitProperty_StreamFormat with kAudioUnitScope_Output",YES);
     
-    CheckStatus(AudioUnitSetProperty(remoteIOUnit,
-                                     kAudioUnitProperty_StreamFormat,
-                                     kAudioUnitScope_Output,
-                                     1,
-                                     &asbd,
-                                     propSize),@"couldn't set kAudioUnitProperty_StreamFormat with kAudioUnitScope_Output",YES);
-}
-
-- (void)connectMicrophoneWithOneFlag:(UInt32)oneFlag
-{
-    //连接上麦克风
-    UInt32 busOne = 1;
-    AudioUnitSetProperty(remoteIOUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Input, busOne, &oneFlag, sizeof(oneFlag));
-    
-    //给audioUnit设置数据格式
-    UInt32 bytesPerSample = sizeof(Float32);
-//    AudioStreamBasicDescription asbd;
-    bzero(&asbd, sizeof(asbd));
-    asbd.mFormatID = kAudioFormatLinearPCM;//音频编码格式
-    asbd.mSampleRate = 44100;
-    asbd.mChannelsPerFrame = 2;//通道数
-    asbd.mFramesPerPacket = 1;
-    asbd.mFormatFlags = kAudioFormatFlagsNativeFloatPacked | kAudioFormatFlagIsNonInterleaved;//指定采样为float格式，非交错存储
-    asbd.mBitsPerChannel = 8 * bytesPerSample;//一个声道的音频数据用多少位来表示
-    asbd.mBytesPerFrame = bytesPerSample;//如果是interleaved，则需要乘以声道数
-    asbd.mBytesPerPacket = bytesPerSample;//如果是interleaved，则需要乘以声道数
-    
     //设置录音格式 参数
+    AudioUnitSetProperty(remoteIOUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &asbd, sizeof(asbd));
+    
+    //设置扬声器格式 参数
     AudioUnitSetProperty(remoteIOUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 1, &asbd, sizeof(asbd));
     
-    [self createAudioFile];
+//    [self setAudioFormatAndCreateAudioFile];
     
 }
 
-- (void)createAudioFile
+- (void)setAudioFormatAndCreateAudioFile
 {
     CFURLRef destinationURL = CFURLCreateWithFileSystemPath(kCFAllocatorDefault,
                                                             (CFStringRef)destinationFilePath,
@@ -258,6 +264,11 @@ static void CheckStatus(OSStatus status, NSString *message,BOOL fatal)
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc
+{
+    AudioComponentInstanceDispose(remoteIOUnit);
 }
 
 @end
