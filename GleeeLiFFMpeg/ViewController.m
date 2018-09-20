@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "GainYUVDataViewController.h"
 #import "CommAudioUnitViewController.h"
+#import "TimeBaseStudyViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -25,6 +26,7 @@
     self.muArray = [[NSMutableArray alloc] init];
     [self.muArray addObject:@"获取视频的YUV数据，保存到本地"];
     [self.muArray addObject:@"使用AudioUnit 录音和播放录音"];
+    [self.muArray addObject:@"小知识点"];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,6 +61,11 @@
         //UIStoryboard *storyboar = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         CommAudioUnitViewController *audioUnitVC = [[CommAudioUnitViewController alloc] init];
         [self.navigationController pushViewController:audioUnitVC animated:YES];
+    }
+    if ([title isEqualToString:@"小知识点"])
+    {
+        TimeBaseStudyViewController *smallStudyVC = [[TimeBaseStudyViewController alloc] init];
+        [self.navigationController pushViewController:smallStudyVC animated:YES];
     }
 }
 

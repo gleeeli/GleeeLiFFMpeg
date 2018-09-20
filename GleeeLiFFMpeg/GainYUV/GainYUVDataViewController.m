@@ -85,7 +85,7 @@
     AVCodecContext *audioCodecCtx = NULL;
     SwrContext *swrContext = NULL;
     
-    AVPicture picture;
+    AVPicture picture;//作用是转格式，比如将rgb的原始数据转YUV
     for (int i = 0; i < formatCtx ->nb_streams; i++)
     {
         AVStream *stream = formatCtx->streams[i];
@@ -372,6 +372,7 @@ int interrupt_callback(void *sender)
     //    }
     //转换图片格式和分辨率
     //SWS_FAST_BILINEAR:为某算法，此算法没有明显失真 详情：https://blog.csdn.net/leixiaohua1020/article/details/12029505
+    //缩放前的初始化参数的函数，前两个参数原始图片宽高 ，原始格式，输出尺寸，输出格式
     swsContext= sws_getContext(videoCodecCtx->width, videoCodecCtx->height, videoCodecCtx->pix_fmt,
                                videoCodecCtx->width, videoCodecCtx->height, AV_PIX_FMT_YUV420P, SWS_BICUBIC, NULL, NULL, NULL);//转码的信息
     //sws_getCachedContext(swsContext, videoCodecCtx->width, videoCodecCtx->height, videoCodecCtx->pix_fmt, videoCodecCtx->width, videoCodecCtx->height, PIX_FMT_YUV420P, SWS_BICUBIC, NULL, NULL, NULL);//SWS_BICUBIC SWS_FAST_BILINEAR
@@ -398,6 +399,10 @@ int interrupt_callback(void *sender)
     }
     else//转换YUV格式
     {
+        //执行缩放和转格式的函数
+        //videoFrame->data 输入的各通道数据数组  picture.data 输出的各通道（YUV）数据数组
+        //videoFrame->linesize 为输入图像数据各颜色通道每行存储的字节数数组，一个图片有很多行，每一行的大小也可能超过宽度
+        //0 为从输入图像数据的第多少列开始逐行扫描，通常设为0；
         sws_scale(swsContext, (const uint8_t **)videoFrame->data, videoFrame->linesize, 0, videoCodecCtx->height, picture.data, picture.linesize);
         
         luma = copyFrameData(picture.data[0],picture.linesize[0],videoCodecCtx->width,videoCodecCtx->height);
@@ -412,12 +417,14 @@ int interrupt_callback(void *sender)
 
 static NSMutableData * copyFrameData(UInt8 *src, int linesize, int width, int height)
 {
-    width = MIN(linesize, width);
-    NSMutableData *md = [NSMutableData dataWithLength: width * height];
+    //width = MIN(linesize, width);
+    NSInteger maxSize = width * height;//最大值是Y分量
+    NSMutableData *md = [NSMutableData dataWithLength: maxSize];
     Byte *dst = md.mutableBytes;
-    for (NSUInteger i = 0; i < height; ++i) {
-        memcpy(dst, src, width);
-        dst += width;
+    for (NSUInteger i = 0; i < height; ++i) {//遍历每行
+        memcpy(dst, src, linesize);
+        //dst += width;感觉不对
+        dst += linesize;
         src += linesize;
     }
     
@@ -445,9 +452,27 @@ static NSMutableData * copyFrameData(UInt8 *src, int linesize, int width, int he
     [fileHandle closeFile];
 }
 
+#pragma mark 扩展不利用AVPicture转RGB
+char* scaleYUVImgToRGB(int nSrcW,int nSrcH,uint8_t **src_data,int *lineSize,int nDstW,int nDstH){
+    int i ; int ret ;  FILE *nRGB_file ;
+    
+    struct SwsContext* m_pSwsContext;
+    char*  out_Img[3];
+    int out_linesize[3];
+    
+    return out_Img[0];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
+/*
+ 补充
+ https://www.cnblogs.com/Sharley/p/5595768.html
+ 在YUV420中，一个像素点对应一个Y，一个4X4的小方块对应一个U和V。对于所有YUV420图像，它们的Y值排列是完全相同的，因为只有Y的图像就是灰度图像。YUV420sp与YUV420p的数据格式它们的UV排列在原理上是完全不同的。420p它是先把U存放完后，再存放V，也就是说UV它们是连续的。而420sp它是UV、UV这样交替存放的。(见下图) 有了上面的理论，我就可以准确的计算出一个YUV420在内存中存放的大小。 width * hight =Y（总和） U = Y / 4   V = Y / 4
+ 
+ YUV420 数据在内存中的长度是 width * hight * 3 / 2，
+ */
 @end

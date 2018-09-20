@@ -35,6 +35,7 @@
 		07062EFC20E4E8D400409EFF /* NineMinute.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 07062EFB20E4E8D400409EFF /* NineMinute.mp4 */; };
 		07062EFF20E4E97E00409EFF /* GainYUVDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07062EFE20E4E97E00409EFF /* GainYUVDataViewController.m */; };
 		07C233A220EF5B2100C0E80B /* CommAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C233A120EF5B2100C0E80B /* CommAudioViewController.m */; };
+		19B9A591215341FD00E33A5C /* TimeBaseStudyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B9A590215341FD00E33A5C /* TimeBaseStudyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		07062EFE20E4E97E00409EFF /* GainYUVDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GainYUVDataViewController.m; sourceTree = "<group>"; };
 		07C233A020EF5B2100C0E80B /* CommAudioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommAudioViewController.h; sourceTree = "<group>"; };
 		07C233A120EF5B2100C0E80B /* CommAudioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommAudioViewController.m; sourceTree = "<group>"; };
+		19B9A58F215341FD00E33A5C /* TimeBaseStudyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeBaseStudyViewController.h; sourceTree = "<group>"; };
+		19B9A590215341FD00E33A5C /* TimeBaseStudyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeBaseStudyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,7 @@
 		07062DF220E4D62300409EFF /* GleeeLiFFMpeg */ = {
 			isa = PBXGroup;
 			children = (
+				19B9A58E215341D200E33A5C /* SmallStudyTest */,
 				07C2339F20EF5AE900C0E80B /* BaseFunc */,
 				07062EE420E4E61000409EFF /* Resource */,
 				07062EBA20E4E54000409EFF /* Vendor */,
@@ -263,6 +267,15 @@
 				0702435C20F2F8EE00181003 /* CommAudioUnitViewController.m */,
 			);
 			path = BaseFunc;
+			sourceTree = "<group>";
+		};
+		19B9A58E215341D200E33A5C /* SmallStudyTest */ = {
+			isa = PBXGroup;
+			children = (
+				19B9A58F215341FD00E33A5C /* TimeBaseStudyViewController.h */,
+				19B9A590215341FD00E33A5C /* TimeBaseStudyViewController.m */,
+			);
+			path = SmallStudyTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +416,7 @@
 				07062DF520E4D62300409EFF /* AppDelegate.m in Sources */,
 				07062EFF20E4E97E00409EFF /* GainYUVDataViewController.m in Sources */,
 				0702435D20F2F8EE00181003 /* CommAudioUnitViewController.m in Sources */,
+				19B9A591215341FD00E33A5C /* TimeBaseStudyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
