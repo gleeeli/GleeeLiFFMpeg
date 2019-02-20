@@ -10,6 +10,7 @@
 #import "GainYUVDataViewController.h"
 #import "CommAudioUnitViewController.h"
 #import "TimeBaseStudyViewController.h"
+#import "KxmoviewStudyViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -27,6 +28,7 @@
     [self.muArray addObject:@"获取视频的YUV数据，保存到本地"];
     [self.muArray addObject:@"使用AudioUnit 录音和播放录音"];
     [self.muArray addObject:@"小知识点"];
+    [self.muArray addObject:@"kxmovie"];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,17 +58,24 @@
         GainYUVDataViewController *gaiVc = [storyboar instantiateViewControllerWithIdentifier:@"GainYUVDataViewController"];
         [self.navigationController pushViewController:gaiVc animated:YES];
     }
-    if ([title isEqualToString:@"使用AudioUnit 录音和播放录音"])
+    else if ([title isEqualToString:@"使用AudioUnit 录音和播放录音"])
     {
         //UIStoryboard *storyboar = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         CommAudioUnitViewController *audioUnitVC = [[CommAudioUnitViewController alloc] init];
         [self.navigationController pushViewController:audioUnitVC animated:YES];
     }
-    if ([title isEqualToString:@"小知识点"])
+    else if ([title isEqualToString:@"小知识点"])
     {
         TimeBaseStudyViewController *smallStudyVC = [[TimeBaseStudyViewController alloc] init];
         [self.navigationController pushViewController:smallStudyVC animated:YES];
     }
+    else if ([title isEqualToString:@"kxmovie"])
+    {
+        KxmoviewStudyViewController *vc = [[KxmoviewStudyViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
