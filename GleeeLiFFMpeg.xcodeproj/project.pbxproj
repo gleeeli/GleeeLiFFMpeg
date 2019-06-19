@@ -39,6 +39,7 @@
 		198265C222B8D69C0062E1C5 /* avio_reading.c in Sources */ = {isa = PBXBuildFile; fileRef = 198265C122B8D69C0062E1C5 /* avio_reading.c */; };
 		198265C522B8E1050062E1C5 /* RunCExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198265C422B8E1050062E1C5 /* RunCExampleViewController.m */; };
 		198265C722B8EE4B0062E1C5 /* test2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 198265C622B8EE4B0062E1C5 /* test2.mp4 */; };
+		19946D6722BA3FFA0051A7A3 /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 19946D6622BA3FFA0051A7A3 /* test.mp3 */; };
 		1999993E221D5665006982E7 /* KxmoviewStudyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1999993D221D5665006982E7 /* KxmoviewStudyViewController.m */; };
 		1999994B221D5756006982E7 /* KxMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19999940221D5756006982E7 /* KxMovieViewController.m */; };
 		1999994C221D5756006982E7 /* KxMovieGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19999942221D5756006982E7 /* KxMovieGLView.m */; };
@@ -116,6 +117,7 @@
 		198265C322B8E1050062E1C5 /* RunCExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunCExampleViewController.h; sourceTree = "<group>"; };
 		198265C422B8E1050062E1C5 /* RunCExampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunCExampleViewController.m; sourceTree = "<group>"; };
 		198265C622B8EE4B0062E1C5 /* test2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test2.mp4; sourceTree = "<group>"; };
+		19946D6622BA3FFA0051A7A3 /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
 		1999993C221D5665006982E7 /* KxmoviewStudyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KxmoviewStudyViewController.h; sourceTree = "<group>"; };
 		1999993D221D5665006982E7 /* KxmoviewStudyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KxmoviewStudyViewController.m; sourceTree = "<group>"; };
 		19999940221D5756006982E7 /* KxMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMovieViewController.m; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		07062EE420E4E61000409EFF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				19946D6622BA3FFA0051A7A3 /* test.mp3 */,
 				198265C622B8EE4B0062E1C5 /* test2.mp4 */,
 				07062EFB20E4E8D400409EFF /* NineMinute.mp4 */,
 			);
@@ -471,6 +474,7 @@
 				07062EFC20E4E8D400409EFF /* NineMinute.mp4 in Resources */,
 				1999994D221D5756006982E7 /* kxmovie.bundle in Resources */,
 				07062EF420E4E86200409EFF /* README.md in Resources */,
+				19946D6722BA3FFA0051A7A3 /* test.mp3 in Resources */,
 				07062DFB20E4D62300409EFF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

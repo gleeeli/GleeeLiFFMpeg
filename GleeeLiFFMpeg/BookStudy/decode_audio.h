@@ -11,4 +11,12 @@
 
 #include <stdio.h>
 
+/**
+ 解码音频
+ 
+ @param outfilename pcm文件路径
+ @param filename 音频文件如mp3
+ */
+int start_main_decode_audio(const char *outfilename, const char *filename);
+
 #endif /* decode_audio_h */

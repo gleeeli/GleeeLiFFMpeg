@@ -88,30 +88,22 @@ static void decode(AVCodecContext *dec_ctx, AVPacket *pkt, AVFrame *frame,
     if (got_frame_ptr)
     {
         //data[0] = 左声道L data[1] = 右声道R
-        if (frame->data[0] && frame->data[1])
-        {
-            //nb_samples：音频的一个AVFrame中可能包含多个音频帧，在此标记包含了几个
-            for (int i = 0; i < frame->nb_samples; i++)
-            {
-                fwrite(frame->data[0] + i * data_size, 1, data_size, outfile);
-                fwrite(frame->data[1] + i * data_size, 1, data_size, outfile);
-            }
-            
-            for (i = 0; i < frame->nb_samples; i++)
-                for (ch = 0; ch < dec_ctx->channels; ch++)
-                    fwrite(frame->data[ch] + data_size*i, 1, data_size, outfile);
-
-        }
-        else if(frame->data[0])
-        {
-            fwrite(frame->data[0], 1, frame->linesize[0], outfile);
-        }
+        //nb_samples：音频的一个AVFrame中可能包含多个音频帧，在此标记包含了几个
+        
+        for (i = 0; i < frame->nb_samples; i++)
+            for (ch = 0; ch < dec_ctx->channels; ch++)
+                fwrite(frame->data[ch] + data_size*i, 1, data_size, outfile);
     }
 }
 
-int start_main(int argc, char **argv)
+/**
+ 解码音频
+
+ @param outfilename pcm文件路径
+ @param filename 音频文件如mp3
+ */
+int start_main_decode_audio(const char *outfilename, const char *filename)
 {
-    const char *outfilename, *filename;
     const AVCodec *codec;
     AVCodecContext *c= NULL;
     AVCodecParserContext *parser = NULL;
@@ -127,18 +119,13 @@ int start_main(int argc, char **argv)
     uint8_t inbuf[AUDIO_INBUF_SIZE + 64];//AV_INPUT_BUFFER_PADDING_SIZE
     uint8_t *data;
     size_t   data_size;
-    AVPacket *pkt = NULL;
+    AVPacket pkt;
     AVFrame *decoded_frame = NULL;
-    if (argc <= 2) {
-        fprintf(stderr, "Usage: %s <input file> <output file>\n", argv[0]);
-        exit(0);
-    }
-    filename    = argv[1];
-    outfilename = argv[2];
-    av_init_packet(pkt);
+
+    av_init_packet(&pkt);
 //    pkt = av_packet_alloc();
     /* find the MPEG audio decoder */
-    codec = avcodec_find_decoder(AV_CODEC_ID_MP2);
+    codec = avcodec_find_decoder(AV_CODEC_ID_MP3);
     if (!codec) {
         fprintf(stderr, "Codec not found\n");
         exit(1);
@@ -178,7 +165,7 @@ int start_main(int argc, char **argv)
                 exit(1);
             }
         }
-        ret = av_parser_parse2(parser, c, &pkt->data, &pkt->size,
+        ret = av_parser_parse2(parser, c, pkt.data, pkt.size,
                                data, data_size,
                                AV_NOPTS_VALUE, AV_NOPTS_VALUE, 0);
         if (ret < 0) {
@@ -187,8 +174,8 @@ int start_main(int argc, char **argv)
         }
         data      += ret;
         data_size -= ret;
-        if (pkt->size)
-            decode(c, pkt, decoded_frame, outfile);
+        if (pkt.size)
+            decode(c, &pkt, decoded_frame, outfile);
         if (data_size < AUDIO_REFILL_THRESH) {
             memmove(inbuf, data, data_size);
             data = inbuf;
@@ -199,15 +186,15 @@ int start_main(int argc, char **argv)
         }
     }
     /* flush(清空) the decoder */
-    pkt->data = NULL;
-    pkt->size = 0;
-    decode(c, pkt, decoded_frame, outfile);
+    pkt.data = NULL;
+    pkt.size = 0;
+    decode(c, &pkt, decoded_frame, outfile);
     fclose(outfile);
     fclose(f);
     avcodec_free_context(&c);
     av_parser_close(parser);
     av_frame_free(&decoded_frame);
-    av_free_packet(pkt);
+    av_free_packet(&pkt);
 //    av_packet_free(&pkt);
     return 0;
 }

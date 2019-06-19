@@ -31,6 +31,7 @@
     [self.muArray addObject:@"小知识点"];
     [self.muArray addObject:@"kxmovie"];
     [self.muArray addObject:@"avio_reading 获取视频文件的视频，音频，字幕流"];
+    [self.muArray addObject:@"decode_audio 解码音频"];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,6 +80,11 @@
     {
         RunCExampleViewController *vc = [[RunCExampleViewController alloc] init];
         vc.typeName = @"avio_reading";
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([title isEqualToString:@"decode_audio 解码音频"])
+    {
+        RunCExampleViewController *vc = [[RunCExampleViewController alloc] init];
+        vc.typeName = @"decode_audio";
         [self.navigationController pushViewController:vc animated:YES];
     }
     

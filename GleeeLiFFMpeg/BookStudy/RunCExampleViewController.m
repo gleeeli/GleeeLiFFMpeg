@@ -8,6 +8,8 @@
 
 #import "RunCExampleViewController.h"
 #import "avio_reading.h"
+#import "decode_audio.h"
+#import "CommHeader.h"
 
 @interface RunCExampleViewController ()
 
@@ -28,6 +30,16 @@
         strcpy(inputname, path);
         NSLog(@"复制后的内容：%s",inputname);
         start_main_avio_reading(path);
+    }else if ([self.typeName isEqualToString:@"decode_audio"]) {
+        
+         NSString *pcmfilePath = [kPathDocument stringByAppendingPathComponent:@"audioPcm.pcm"];
+        const char *pcmpath = [pcmfilePath UTF8String];
+        NSLog(@"解码后的pcm文件路径：%@",pcmfilePath);
+        
+        NSString *mp3filePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp3"];
+        const char *mp3path = [mp3filePath UTF8String];
+        
+        start_main_decode_audio(pcmpath, mp3path);
     }
 }
 
