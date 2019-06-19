@@ -183,6 +183,7 @@ static NSMutableDictionary * gHistory;
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
     
             NSError *error = nil;
+            //打开解码器 音视频流
             [decoder openFile:path error:&error];
                         
             __strong KxMovieViewController *strongSelf = weakSelf;
@@ -889,6 +890,7 @@ _messageLabel.hidden = YES;
                 const NSUInteger bytesToCopy = MIN(numFrames * frameSizeOf, bytesLeft);
                 const NSUInteger framesToCopy = bytesToCopy / frameSizeOf;
                 
+                //给指针outdata赋值 用于播放
                 memcpy(outData, bytes, bytesToCopy);
                 numFrames -= framesToCopy;
                 outData += framesToCopy * numChannels;
@@ -1012,8 +1014,9 @@ _messageLabel.hidden = YES;
     __weak KxMovieDecoder *weakDecoder = _decoder;
     
     const CGFloat duration = _decoder.isNetwork ? .0f : 0.1f;
-    
+    //设置为正则解码
     self.decoding = YES;
+    //开启顺序执行的异步线程
     dispatch_async(_dispatchQueue, ^{
         
         {
@@ -1051,8 +1054,12 @@ _messageLabel.hidden = YES;
     });
 }
 
+/**
+ 循环解码 点击播放调用
+ */
 - (void) tick
 {
+    //???
     if (_buffered && ((_bufferedDuration > _minBufferedDuration) || _decoder.isEOF)) {
         
         _tickCorrectionTime = 0;
@@ -1062,9 +1069,10 @@ _messageLabel.hidden = YES;
     
     CGFloat interval = 0;
     if (!_buffered)
+        //显示视图
         interval = [self presentFrame];
     
-    if (self.playing) {
+    if (self.playing) {//暂停时此为NO 不进入解析
         
         const NSUInteger leftFrames =
         (_decoder.validVideo ? _videoFrames.count : 0) +
@@ -1096,6 +1104,7 @@ _messageLabel.hidden = YES;
         const NSTimeInterval time = MAX(interval + correction, 0.01);
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, time * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            //递归调用
             [self tick];
         });
     }
@@ -1136,6 +1145,9 @@ _messageLabel.hidden = YES;
     return correction;
 }
 
+/**
+ 从tick函数调用
+ */
 - (CGFloat) presentFrame
 {
     CGFloat interval = 0;
@@ -1148,12 +1160,12 @@ _messageLabel.hidden = YES;
             
             if (_videoFrames.count > 0) {
                 
-                frame = _videoFrames[0];
+                frame = _videoFrames[0];//取出数组中的第一帧
                 [_videoFrames removeObjectAtIndex:0];
                 _bufferedDuration -= frame.duration;
             }
         }
-        
+        //显示当前帧
         if (frame)
             interval = [self presentVideoFrame:frame];
         
@@ -1383,9 +1395,16 @@ _messageLabel.hidden = YES;
     _disableUpdateHUD = NO;
 }
 
+/**
+ 更新播放位置 比如拖动进度条
+
+ @param position 时间点 秒
+ @param playMode 当前是否正在播放
+ */
 - (void) updatePosition: (CGFloat) position
                playMode: (BOOL) playMode
 {
+    //移除所有缓存
     [self freeBufferedFrames];
     
     position = MIN(_decoder.duration - 1, MAX(0, position));
@@ -1407,12 +1426,12 @@ _messageLabel.hidden = YES;
                 __strong KxMovieViewController *strongSelf = weakSelf;
                 if (strongSelf) {
                     [strongSelf setMoviePositionFromDecoder];
+                    //播放
                     [strongSelf play];
                 }
             });
             
-        } else {
-
+        } else {//当前未播放 快进
             {
                 __strong KxMovieViewController *strongSelf = weakSelf;
                 if (!strongSelf) return;

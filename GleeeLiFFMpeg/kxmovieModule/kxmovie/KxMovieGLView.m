@@ -594,8 +594,11 @@ exit:
     [EAGLContext setCurrentContext:_context];
     
     glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
+    //视口，确定窗口大小
     glViewport(0, 0, _backingWidth, _backingHeight);
+    //清空后的填充值
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    //清空屏幕 清空颜色缓冲
     glClear(GL_COLOR_BUFFER_BIT);
 	glUseProgram(_program);
         

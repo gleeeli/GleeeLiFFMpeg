@@ -474,5 +474,7 @@ char* scaleYUVImgToRGB(int nSrcW,int nSrcH,uint8_t **src_data,int *lineSize,int 
  在YUV420中，一个像素点对应一个Y，一个4X4的小方块对应一个U和V。对于所有YUV420图像，它们的Y值排列是完全相同的，因为只有Y的图像就是灰度图像。YUV420sp与YUV420p的数据格式它们的UV排列在原理上是完全不同的。420p它是先把U存放完后，再存放V，也就是说UV它们是连续的。而420sp它是UV、UV这样交替存放的。(见下图) 有了上面的理论，我就可以准确的计算出一个YUV420在内存中存放的大小。 width * hight =Y（总和） U = Y / 4   V = Y / 4
  
  YUV420 数据在内存中的长度是 width * hight * 3 / 2，
+ 
+ 理解：Y代表亮度，每个像素都必需存一个值，YUV420则是每四个Y存一个U和V，所以U和V分别是Y的四分之一，Y+U+V = 上面的
  */
 @end

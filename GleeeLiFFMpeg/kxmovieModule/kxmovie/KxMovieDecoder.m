@@ -243,6 +243,10 @@ static void avStreamFPSTimeBase(AVStream *st, CGFloat defaultTimeBase, CGFloat *
         *pTimeBase = timebase;
 }
 
+
+/**
+ 遍历流数组 找出对应类型的流
+ */
 static NSArray *collectStreams(AVFormatContext *formatCtx, enum AVMediaType codecType)
 {
     NSMutableArray *ma = [NSMutableArray array];
@@ -457,18 +461,21 @@ static int interrupt_callback(void *ctx);
     return _position;
 }
 
+/**
+ 设置当前解析到第几帧
+ */
 - (void) setPosition: (CGFloat)seconds
 {
     _position = seconds;
     _isEOF = NO;
 	   
-    if (_videoStream != -1) {
+    if (_videoStream != -1) {//视频流
         int64_t ts = (int64_t)(seconds / _videoTimeBase);
         avformat_seek_file(_formatCtx, _videoStream, ts, ts, ts, AVSEEK_FLAG_FRAME);
         avcodec_flush_buffers(_videoCodecCtx);
     }
     
-    if (_audioStream != -1) {
+    if (_audioStream != -1) {//音频流
         int64_t ts = (int64_t)(seconds / _audioTimeBase);
         avformat_seek_file(_formatCtx, _audioStream, ts, ts, ts, AVSEEK_FLAG_FRAME);
         avcodec_flush_buffers(_audioCodecCtx);
@@ -690,6 +697,9 @@ static int interrupt_callback(void *ctx);
     return 0;
 }
 
+/**
+ init之前调用此方法
+ */
 + (void)initialize
 {
     av_log_set_callback(FFLog);
@@ -727,6 +737,8 @@ static int interrupt_callback(void *ctx);
     if (needNetworkInit && _isNetwork) {
         
         needNetworkInit = NO;
+        //加载socket库以及网络加密协议相关的库，为后续使用网络相关提供支持
+        //如果要解封装网络数据格式，则可调用该函数。
         avformat_network_init();
     }
     
@@ -779,6 +791,7 @@ static int interrupt_callback(void *ctx);
         formatCtx->interrupt_callback = cb;
     }
     
+    //打开一个文件并解析
     if (avformat_open_input(&formatCtx, [path cStringUsingEncoding: NSUTF8StringEncoding], NULL, NULL) < 0) {
         
         if (formatCtx)
@@ -786,12 +799,14 @@ static int interrupt_callback(void *ctx);
         return kxMovieErrorOpenFile;
     }
     
+    //查找格式和索引。有些早期格式它的索引并没有放到头当中，需要你到后面探测，就会用到此函数。
     if (avformat_find_stream_info(formatCtx, NULL) < 0) {
         
         avformat_close_input(&formatCtx);
         return kxMovieErrorStreamInfoNotFound;
     }
 
+    //可以通过av_dump_format函数将音视频数据格式通过av_log输出到指定的文件或者控制台,方便开发者了解输入的视音频格式，对于程序的调用，删除该函数的调用没有任何的影响
     av_dump_format(formatCtx, 0, [path.lastPathComponent cStringUsingEncoding: NSUTF8StringEncoding], false);
     
     _formatCtx = formatCtx;
@@ -803,6 +818,7 @@ static int interrupt_callback(void *ctx);
     kxMovieError errCode = kxMovieErrorStreamNotFound;
     _videoStream = -1;
     _artworkStream = -1;
+    //得到视频流
     _videoStreams = collectStreams(_formatCtx, AVMEDIA_TYPE_VIDEO);
     for (NSNumber *n in _videoStreams) {
         
@@ -838,7 +854,7 @@ static int interrupt_callback(void *ctx);
     //if(codec->capabilities & CODEC_CAP_TRUNCATED)
     //    _codecCtx->flags |= CODEC_FLAG_TRUNCATED;
     
-    // open codec
+    // open codec 初始化具体的解码器
     if (avcodec_open2(codecCtx, codec, NULL) < 0)
         return kxMovieErrorOpenCodec;
         
@@ -1352,6 +1368,11 @@ static int interrupt_callback(void *ctx);
     return _videoFrameFormat == format;
 }
 
+/**
+ 解析一定时间段内的所有帧
+
+ @param minDuration 段
+ */
 - (NSArray *) decodeFrames: (CGFloat) minDuration
 {
     if (_videoStream == -1 &&
@@ -1380,6 +1401,7 @@ static int interrupt_callback(void *ctx);
             while (pktSize > 0) {
                             
                 int gotframe = 0;
+                //得到YUV数据
                 int len = avcodec_decode_video2(_videoCodecCtx,
                                                 _videoFrame,
                                                 &gotframe,
@@ -1427,6 +1449,7 @@ static int interrupt_callback(void *ctx);
             while (pktSize > 0) {
                 
                 int gotframe = 0;
+                //得到pcm数据
                 int len = avcodec_decode_audio4(_audioCodecCtx,
                                                 _audioFrame,                                                
                                                 &gotframe,

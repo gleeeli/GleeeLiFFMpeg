@@ -11,6 +11,7 @@
 #import "CommAudioUnitViewController.h"
 #import "TimeBaseStudyViewController.h"
 #import "KxmoviewStudyViewController.h"
+#import "RunCExampleViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,6 +30,7 @@
     [self.muArray addObject:@"使用AudioUnit 录音和播放录音"];
     [self.muArray addObject:@"小知识点"];
     [self.muArray addObject:@"kxmovie"];
+    [self.muArray addObject:@"avio_reading 获取视频文件的视频，音频，字幕流"];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,6 +74,11 @@
     else if ([title isEqualToString:@"kxmovie"])
     {
         KxmoviewStudyViewController *vc = [[KxmoviewStudyViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if ([title isEqualToString:@"avio_reading 获取视频文件的视频，音频，字幕流"])
+    {
+        RunCExampleViewController *vc = [[RunCExampleViewController alloc] init];
+        vc.typeName = @"avio_reading";
         [self.navigationController pushViewController:vc animated:YES];
     }
     
