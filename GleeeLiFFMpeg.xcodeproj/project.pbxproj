@@ -46,6 +46,7 @@
 		1999994E221D5756006982E7 /* KxAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 19999945221D5756006982E7 /* KxAudioManager.m */; };
 		1999994F221D5756006982E7 /* KxMovieDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 19999949221D5756006982E7 /* KxMovieDecoder.m */; };
 		19ACFA1D22A755890017078A /* muxing.c in Sources */ = {isa = PBXBuildFile; fileRef = 19ACFA1C22A755890017078A /* muxing.c */; };
+		19AEC9EC22B9E166003D5BD2 /* decode_audio.c in Sources */ = {isa = PBXBuildFile; fileRef = 19AEC9EB22B9E166003D5BD2 /* decode_audio.c */; };
 		19B9A591215341FD00E33A5C /* TimeBaseStudyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B9A590215341FD00E33A5C /* TimeBaseStudyViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,8 @@
 		1999994A221D5756006982E7 /* KxAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxAudioManager.h; sourceTree = "<group>"; };
 		19ACFA1B22A755890017078A /* muxing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = muxing.h; sourceTree = "<group>"; };
 		19ACFA1C22A755890017078A /* muxing.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = muxing.c; sourceTree = "<group>"; };
+		19AEC9EA22B9E166003D5BD2 /* decode_audio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = decode_audio.h; sourceTree = "<group>"; };
+		19AEC9EB22B9E166003D5BD2 /* decode_audio.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = decode_audio.c; sourceTree = "<group>"; };
 		19B9A58F215341FD00E33A5C /* TimeBaseStudyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeBaseStudyViewController.h; sourceTree = "<group>"; };
 		19B9A590215341FD00E33A5C /* TimeBaseStudyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeBaseStudyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -316,6 +319,8 @@
 				198265C122B8D69C0062E1C5 /* avio_reading.c */,
 				198265C322B8E1050062E1C5 /* RunCExampleViewController.h */,
 				198265C422B8E1050062E1C5 /* RunCExampleViewController.m */,
+				19AEC9EA22B9E166003D5BD2 /* decode_audio.h */,
+				19AEC9EB22B9E166003D5BD2 /* decode_audio.c */,
 			);
 			path = BookStudy;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				07062E0320E4D62D00409EFF /* main.m in Sources */,
 				1999994C221D5756006982E7 /* KxMovieGLView.m in Sources */,
 				1999994F221D5756006982E7 /* KxMovieDecoder.m in Sources */,
+				19AEC9EC22B9E166003D5BD2 /* decode_audio.c in Sources */,
 				1999993E221D5665006982E7 /* KxmoviewStudyViewController.m in Sources */,
 				198265C222B8D69C0062E1C5 /* avio_reading.c in Sources */,
 				07C233A220EF5B2100C0E80B /* CommAudioViewController.m in Sources */,
